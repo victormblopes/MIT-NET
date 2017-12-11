@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PassagemServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PassagemServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14677/ControladorPassagemService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPassagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Passagem" nillable="true" type="tns:Passagem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPassagem" nillable="true" type="tns:ArrayOfPassagem" />
+  <xs:complexType name="Passagem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disponivel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Passagem" nillable="true" type="tns:Passagem" />
+</xs:schema>

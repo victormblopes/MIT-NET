@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1561f346-9b5a-4296-adac-ac474724d190" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:13845/PassagemService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PassagemService.xsd" MetadataType="Schema" ID="5415d7bc-3062-40e0-bba6-21fc1acdf699" SourceId="1" SourceUrl="http://localhost:13845/PassagemService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PassagemService1.xsd" MetadataType="Schema" ID="44d5dbf7-1033-4be8-9a1a-7b1f77fc5eea" SourceId="1" SourceUrl="http://localhost:13845/PassagemService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PassagemService2.xsd" MetadataType="Schema" ID="574397ea-dc94-467c-9d78-0136a401c035" SourceId="1" SourceUrl="http://localhost:13845/PassagemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PassagemService.disco" MetadataType="Disco" ID="760c576b-9cc8-47e5-b88a-a2715b40a786" SourceId="1" SourceUrl="http://localhost:13845/PassagemService.svc?disco" />
+    <MetadataFile FileName="PassagemService.wsdl" MetadataType="Wsdl" ID="58462613-450b-4aed-a8fa-b2fea44652c3" SourceId="1" SourceUrl="http://localhost:13845/PassagemService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

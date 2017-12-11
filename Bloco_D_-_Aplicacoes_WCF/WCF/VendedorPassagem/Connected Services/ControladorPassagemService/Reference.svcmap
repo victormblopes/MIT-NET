@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee88c259-ff8b-49ae-83d7-064bcbfd33ca" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:14677/ControladorPassagemService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ControladorPassagemService.xsd" MetadataType="Schema" ID="881b0a6b-13d1-48bb-891a-af98e0eca088" SourceId="1" SourceUrl="http://localhost:14677/ControladorPassagemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ControladorPassagemService1.xsd" MetadataType="Schema" ID="acbf7e32-9f56-4fdb-8c3f-c36dda08e4a2" SourceId="1" SourceUrl="http://localhost:14677/ControladorPassagemService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ControladorPassagemService.disco" MetadataType="Disco" ID="2138bb34-54ab-40ef-9d58-7eecd47be682" SourceId="1" SourceUrl="http://localhost:14677/ControladorPassagemService.svc?disco" />
+    <MetadataFile FileName="ControladorPassagemService.wsdl" MetadataType="Wsdl" ID="a0d2543c-dfb8-476d-8a87-b630fbd371bc" SourceId="1" SourceUrl="http://localhost:14677/ControladorPassagemService.svc?wsdl" />
+    <MetadataFile FileName="ControladorPassagemService2.xsd" MetadataType="Schema" ID="94ff6b8e-5c03-4c1c-ac5e-767014ad398b" SourceId="1" SourceUrl="http://localhost:14677/ControladorPassagemService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
