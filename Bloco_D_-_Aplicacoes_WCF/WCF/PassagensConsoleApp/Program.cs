@@ -57,7 +57,6 @@ namespace PassagensConsoleApp
                 client.Close();
             }
             Console.WriteLine("Passagens criadas!");
-            Console.ReadLine();
 
             // Lista as passagens criadas
             using (var client = new ControladorPassagemServiceClient())

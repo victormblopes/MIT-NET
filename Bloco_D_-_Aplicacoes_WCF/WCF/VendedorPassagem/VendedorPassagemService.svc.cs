@@ -17,11 +17,11 @@ namespace VendedorPassagem
         // Caso não exista passagem disponível na fila, uma exceção é lançada.
         public Passagem ComprarPassagem()
         {
-            Passagem passagem;
+            Passagem passagem = null;
             passagensQueue.TryDequeue(out passagem);
             if (passagem == null && passagensQueue.Count == 0)
             {
-                throw new FaultException<EmptyQueueException>( new EmptyQueueException("Fila vazia"));
+                throw new FaultException<EmptyQueueException>(new EmptyQueueException("Fila vazia"));
             }
             return passagem;
         }
@@ -29,11 +29,11 @@ namespace VendedorPassagem
         //Lista as passagens disponíveis no array e inseri na fila
         public Passagem[] ListarPassagens()
         {
-            Passagem[] passagens;
+            Passagem[] passagens = null;
             using (var cli = new ControladorPassagemServiceClient())
             {
                 cli.Open();
-                passagens = cli.ListarPassagens()?.Where(c => c.Disponivel)?.ToArray();
+                passagens = cli.ListarPassagens().Where(c => c.Disponivel).ToArray();
                 cli.Close();
             }
             foreach (var passagem in passagens)

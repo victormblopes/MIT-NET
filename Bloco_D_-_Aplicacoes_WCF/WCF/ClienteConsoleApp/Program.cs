@@ -1,95 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using ClienteConsoleApp.VendedorPassagemService;
+using System.ServiceModel;
 
 namespace ClienteConsoleApp
 {
     class Program
     {
-
-        //private static int countTicketsByClient1 = 0;
-        //private static int countTicketsByClient2 = 0;
-
         static void Main(string[] args)
         {
-        //    Console.WriteLine("Consumindo passagens...");
-        //    Console.ReadLine();
 
+            using (var cli = new VendedorPassagemServiceClient())
+            {
+                cli.Open();
+                cli.ListarPassagens();
+                cli.Close();
+            }
 
-        //    Passagem[] passagens;
+            Console.WriteLine("Pressione ENTER para comecar a consumir as passagens...");
+            Console.ReadLine();
 
-        //    using (var cli = new VendedorPassagemServiceClient())
-        //    {
-        //        cli.Open();
-        //        tickets = cli.GetAvaiableTickets();
-        //        cli.Close();
-        //    }
+            Console.WriteLine("Consumindo passagens...");
 
-        //    Thread client1 = new Thread(ExecuteAsClient);
-        //    client1.Start();
-        //    Thread client2 = new Thread(ExecuteAsClient2);
-        //    client2.Start();
+            const int qtdClientes = 5;
 
-        //    while (client1.IsAlive || client2.IsAlive)
-        //    {
-        //        //Do something
-        //    }
+            Task<bool>[] clientes = new Task<bool>[qtdClientes];
 
-        //    Console.WriteLine($"Quantidade de Ingressos consumidas pela primeira thread = {countTicketsByClient1}");
-        //    Console.WriteLine($"Quantidade de Ingressos consumidas pela segunda thread = {countTicketsByClient2}");
+            for (int i = 0; i < qtdClientes; i++)
+                clientes[i] = Task.Run(() => TaskComprarPassagem() );
+            Task.WaitAll(clientes);
 
-        //    Console.ReadLine();
+            int countQtdPassagensCompradas = 0;
+            foreach (var cliente in clientes) {
+                if (cliente.Result == true)
+                    countQtdPassagensCompradas++;
+            }
 
-        //}
+            Console.WriteLine($"Total de passagens vendidas: {countQtdPassagensCompradas}" );
+            Console.WriteLine($"Total de Clientes que tentaram comprar passagem: {clientes.Length}");
 
-        //private static void ExecuteAsClient()
-        //{
-        //    Ticket ticket;
-        //    using (var cli = new TicketSellerServiceClient())
-        //    {
-        //        cli.Open();
-        //        do
-        //        {
-        //            try
-        //            {
-        //                ticket = cli.BuyTicket();
-        //            }
-        //            catch (FaultException<EmptyQueueException> ex)
-        //            {
-        //                Console.WriteLine(ex.Message);
-        //                break;
-        //            }
-        //            if (ticket != null)
-        //                countTicketsByClient1++;
-        //        } while (ticket != null);
-        //        cli.Close();
-        //    }
+            Console.ReadLine();
+                    
+        }
 
-        //}
-        //private static void ExecuteAsClient2()
-        //{
-        //    Ticket ticket;
-        //    using (var cli = new TicketSellerServiceClient())
-        //    {
-        //        cli.Open();
-        //        do
-        //        {
-        //            try
-        //            {
-        //                ticket = cli.BuyTicket();
-        //            }
-        //            catch (FaultException<EmptyQueueException> ex)
-        //            {
-        //                Console.WriteLine(ex.Message);
-        //                break;
-        //            }
-        //            if (ticket != null)
-        //                countTicketsByClient2++;
-        //        } while (ticket != null);
-        //        cli.Close();
-        //    }
+        static bool TaskComprarPassagem()
+        {
+            Passagem passagem = null;
+            using (var cli = new VendedorPassagemServiceClient())
+            {
+                cli.Open();
+                try
+                {
+                    passagem = cli.ComprarPassagem();
+                }
+                catch(FaultException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    passagem = null;
+                }
+                cli.Close();
+            }
+
+            if (passagem == null)
+                return false;
+
+            return true;
         }
     }
 }
